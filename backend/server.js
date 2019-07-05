@@ -61,10 +61,17 @@ memoRouter.route('/update/:id').post((req, res) => {
     res.status(200).send("Memo Reminder Application...");
 });
 
-// TODO: Implementation
-memoRouter.route('/delete/:id').post((req, res) => {
-    console.log("Memo Reminder Application...");
-    res.status(200).send("Memo Reminder Application...");
+memoRouter.route('/delete/:id').get((req, res) => {
+    const id = req.params.id;
+    Memo.findById(id).remove(err => {
+        if (err) {
+            console.log(err);
+            res.status(500).send(err);
+        } else {
+            console.log("memo deleted successfully");
+            res.status(200).json({'memo': "memo deleted successfully"});
+        }
+    });
 });
 
 app.use('/memos', memoRouter);
