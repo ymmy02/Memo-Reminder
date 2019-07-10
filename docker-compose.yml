@@ -10,3 +10,17 @@ services:
       - 27017:27017
     volumes:
       - ./db:/data/db
+
+  api:
+    image: node:10.16.0-alpine
+    restart: always
+    container_name: api
+    ports:
+      - 4000:4000
+    volumes:
+      - ./backend:/src
+    working_dir: /src
+    depends_on:
+      - mongo
+    command: [./wait-for-mongo.sh, npm, start]
+

@@ -11,7 +11,9 @@ const Memo = require('./model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/memos', { useNewUrlParser: true });
+const fs = require('fs');
+const mongoUrl = fs.existsSync('/.dockerenv') ? 'mongo' : 'localhost';  // Check environment on Docker or Not
+mongoose.connect(`mongodb://${mongoUrl}:27017/memos`, { useNewUrlParser: true });
 const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection estublished successfully");
