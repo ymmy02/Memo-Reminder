@@ -17,10 +17,15 @@ connection.once('open', function() {
     console.log("MongoDB database connection estublished successfully");
 });
 
-// TODO: Implementation
 memoRouter.route('/random').get((req, res) => {
-    console.log("Memo Reminder Application...");
-    res.status(200).send("Memo Reminder Application...");
+    const numMemos = parseInt(req.query.num);
+    Memo.aggregate([{ $sample: {size: numMemos} }], (err, memos) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(memos);
+        }
+    });
 });
 
 memoRouter.route('/list').get((req, res) => {
