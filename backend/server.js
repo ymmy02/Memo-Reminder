@@ -55,10 +55,21 @@ memoRouter.route('/add').post((req, res) => {
         });
 });
 
-// TODO: Implementation
 memoRouter.route('/update/:id').post((req, res) => {
-    console.log("Memo Reminder Application...");
-    res.status(200).send("Memo Reminder Application...");
+    const id = req.params.id;
+    Memo.findById(id, (err, memo) => {
+        if (!memo) {
+            res.status(404).send('data is not found');
+        } else {
+            memo.memo_content = req.body.memo_content;
+
+            memo.save().then(memo => {
+                res.send("Memo updated");
+            }).catch(err => {
+                res.status(400).send("Update not possible");
+            });
+        }
+    });
 });
 
 memoRouter.route('/delete/:id').get((req, res) => {
