@@ -9,6 +9,7 @@
 <script>
 import Memo from '../components/Memo.vue';
 import { apiUrl } from '../variables';
+import axios from 'axios';
 
 export default {
   components: {
@@ -16,21 +17,13 @@ export default {
   },
   data() {
     return {
-      memolist: [
-        {
-          _id: '1',
-          memo_content: 'First memo'
-        },
-        {
-          _id: '2',
-          memo_content: 'Second memo'
-        },
-        {
-          _id: '3',
-          memo_content: 'Third memo'
-        },
-      ]
+      memolist: []
     }
+  },
+  created() {
+    axios.get(apiUrl + '/list')
+      .then(res => this.memolist = res.data)
+      .catch(err => console.log(err));
   }
 }
 </script>
