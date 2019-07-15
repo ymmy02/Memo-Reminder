@@ -55,7 +55,7 @@ memoRouter.route('/add').post((req, res) => {
     let memo = new Memo(req.body);
     memo.save()
         .then(memo => {
-            res.status(200).json({'memo': "memo added successfully"});
+            res.status(200).json({'newMemo': memo});
         })
         .catch(err => {
             res.status(400).send("adding new memo failed")
