@@ -2,8 +2,10 @@
   <div id="app">
     <Header />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/memolist">Memo List</router-link>
+      <b-nav align="center">
+        <b-nav-item><router-link to="/">Home</router-link></b-nav-item>
+        <b-nav-item><router-link to="/memolist">Memo List</router-link></b-nav-item>
+      </b-nav>
     </div>
     <router-view/>
   </div>
@@ -29,16 +31,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #696969;
+  text-decoration: underline;
 }
 </style>
