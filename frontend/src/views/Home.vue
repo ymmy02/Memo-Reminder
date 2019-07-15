@@ -24,7 +24,7 @@ export default {
       .catch(err => console.log(err));
   },
   methods: {
-    shuffle: function() {
+    shuffle() {
       axios.get(apiUrl + '/random?num=5')
         .then(res => this.memolist = res.data)
         .catch(err => console.log(err));
