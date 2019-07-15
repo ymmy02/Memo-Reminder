@@ -1,6 +1,7 @@
 <template>
     <header class="header">
         <h1>Memo Reminder</h1>
+        Make remark awesome again
     </header>
 </template>
 
