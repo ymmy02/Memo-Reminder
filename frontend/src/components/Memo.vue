@@ -17,6 +17,10 @@ export default {
     padding: 20px 0 20px 0;
 }
 
+.memo-content:hover {
+    background-color: ivory;
+}
+
 .edit-button {
     float: right;
 }
