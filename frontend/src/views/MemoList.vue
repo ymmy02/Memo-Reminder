@@ -1,5 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="memo-list">
+    <b-button variant="outline-primary">Button</b-button>
   </div>
 </template>
+
