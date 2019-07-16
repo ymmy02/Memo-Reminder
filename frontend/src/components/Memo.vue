@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .memo-content {
-    padding: 20px 0 20px 0;
+    white-space: pre-wrap;
 }
 
 .memo-content:hover {
@@ -25,6 +25,8 @@ export default {
 }
 
 .edit-button {
+    position: relative;
+    bottom: 30px;
     float: right;
 }
 </style>

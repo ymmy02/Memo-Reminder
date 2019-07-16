@@ -3,6 +3,7 @@
     <div class="memo-content" v-for="memo in memolist" :key="memo._id">
       {{ memo.memo_content }}
     </div>
+    <br />
     <b-button variant="outline-primary" @click="shuffle">Shuffle</b-button>
   </div>
 </template>
@@ -36,6 +37,11 @@ export default {
 <style scoped>
 .memo-content {
   padding: 10px 0 10px 0;
+  white-space: pre-line;
+}
+
+.memo-content:hover {
+    background-color: ivory;
 }
 </style>
 
