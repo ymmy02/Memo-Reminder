@@ -9,7 +9,7 @@
             max-rows="12"
             ></b-form-textarea>
             <b-button type="submit" class="submit-button" variant="outline-primary">Update</b-button>
-            <b-button type="submit" class="submit-button" variant="outline-danger">Delete</b-button>
+            <b-button type="submit" class="submit-button" variant="outline-danger" @click="deleteMemo">Delete</b-button>
         </form>
     </div>
 </template>
@@ -33,6 +33,14 @@ export default {
             .catch(err => console.log(err));
     },
     methods: {
+        deleteMemo(e) {
+            e.preventDefault();
+            axios.get(apiUrl + `/delete/${this.id}`)
+                .then(res => {
+                    this.$router.push({ path: '../memolist' });
+                })
+                .catch(err => console.log(err));
+        }
     }
 }
 </script>
