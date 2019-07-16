@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
 .add-memo {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .submit-button {
