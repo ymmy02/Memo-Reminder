@@ -8,7 +8,7 @@
             rows="3"
             max-rows="12"
             ></b-form-textarea>
-            <b-button type="submit" class="submit-button" variant="outline-primary">Update</b-button>
+            <b-button type="submit" class="submit-button" variant="outline-primary" @click="updateMemo">Update</b-button>
             <b-button type="submit" class="submit-button" variant="outline-danger" @click="deleteMemo">Delete</b-button>
         </form>
     </div>
@@ -33,6 +33,14 @@ export default {
             .catch(err => console.log(err));
     },
     methods: {
+        updateMemo(e) {
+            e.preventDefault();
+            axios.post(apiUrl + `/update/${this.id}`, { memo_content: this.memo_content})
+                .then(res => {
+                    this.$router.push({ path: '../memolist' });
+                })
+                .catch(err => console.log(err));
+        },
         deleteMemo(e) {
             e.preventDefault();
             axios.get(apiUrl + `/delete/${this.id}`)
