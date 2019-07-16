@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container">
     <div class="memo-content" v-for="memo in memolist" :key="memo._id">
       {{ memo.memo_content }}
     </div>

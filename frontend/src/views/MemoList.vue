@@ -12,7 +12,6 @@
         <b-button type="submit" class="submit-button" variant="outline-primary">Submit</b-button>
       </form>
     </div>
-    <br />
     <div v-for="memo in memolist" :key="memo._id">
       <Memo :memo="memo" />
     </div>
