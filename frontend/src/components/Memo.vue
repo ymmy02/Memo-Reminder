@@ -1,7 +1,10 @@
 <template>
     <div class="memo-content">
         {{ memo.memo_content }}
-        <b-button variant="outline-success" class="edit-button">Edit</b-button>
+        <router-link 
+            :to="{ name: 'edit', params: { id: memo._id } }">
+            <b-button variant="outline-success" class="edit-button">Edit</b-button>
+        </router-link>
     </div>
 </template>
 
